@@ -1,0 +1,8 @@
+<div class="home-container">
+  <app-file-input></app-file-input>
+  <ng-container *ngIf="listService.list">
+    <div class="button-container">
+      <button class="button" routerLink="/exercise">Start Exercise</button>
+    </div>
+  </ng-container>
+</div>

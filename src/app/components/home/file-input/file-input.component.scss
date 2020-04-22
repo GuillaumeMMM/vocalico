@@ -1,0 +1,33 @@
+@import '../../../styles/var.scss';
+
+:host {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.file-input-container {
+    flex: 1;
+    height: 100%;
+    margin: 40px;
+    border-radius: 20px;
+    border: 3px solid $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color-light;
+    cursor: pointer;
+
+    &:hover {
+        color: $text-color-secondary;
+        background-color: $primary-color;
+    }
+
+    input.fine-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,24 @@
+@import './var.scss';
+
+button.button {
+    cursor: pointer;
+    color: $text-color-secondary;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+
+    &:hover {
+        background-color: $primary-color-dark;
+        border-color: $primary-color-dark;
+    }
+}

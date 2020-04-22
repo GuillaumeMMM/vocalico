@@ -1,0 +1,22 @@
+@import '../../styles/buttons.scss';
+
+:host {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.home-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .button-container {
+        display: inline-block;
+        margin: 0 30px 30px 30px;
+    }
+}

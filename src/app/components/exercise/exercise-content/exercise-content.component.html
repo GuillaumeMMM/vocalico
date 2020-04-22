@@ -1,0 +1,7 @@
+<div class="exercise-content-container">
+  <div class="exercise-title">{{exercise.from}} - {{exercise.to}}</div>
+  <div class="question-index">{{countOfCorrectANswers}} / {{currentQuestionIndex + 1}}</div>
+  <ng-container *ngIf="questions && questions.length > 0">
+    <app-question [question]="questions[currentQuestionIndex]" (answer)="handleAnswer($event)" (nextQuestion)="nextQuestion()" [wrongAnswer]="wrongAnswer"></app-question>
+  </ng-container>
+</div>

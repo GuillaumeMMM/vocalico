@@ -1,0 +1,47 @@
+@import '../../../styles/var.scss';
+
+.header-container {
+    width: 100%;
+    height: $header-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    color: $text-color-secondary;
+    position: relative;
+
+    .header-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    .back-button {
+        position: absolute;
+        left: 0;
+        padding: 15px;
+        margin-left: 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            fill: $text-color-secondary;
+        }
+    
+        &:hover {
+            background-color: $primary-color-dark;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header-container:not(.header-container-home) {
+        justify-content: flex-end;
+
+        .header-title {
+            padding-right: 10px;
+        }
+    }
+}

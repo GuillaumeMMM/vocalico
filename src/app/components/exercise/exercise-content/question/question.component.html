@@ -1,0 +1,25 @@
+<ng-container *ngIf="!wrongAnswer; else wrongAnswerTemplate">
+  <div class="question-container" (window:resize)="onResize($event)">
+    <div class="question-text" id="question">{{question.q}}</div>
+    <form class="answer-form answer-form-before-answer" (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <input type="text" autocomplete="off" #answerInput id="answer" name="answer" class="input" placeholder="answer" [(ngModel)]="inputValue">
+        <p *ngIf="error" class="error-text">{{error}}</p>
+      </div>
+      <button class="button" type="submit">Submit</button>
+    </form>
+  </div>
+</ng-container>
+
+<ng-template #wrongAnswerTemplate>
+  <div class="question-container">
+    <div class="question-text question-wrong" id="answer">{{question.a}}</div>
+    <form class="answer-form" (ngSubmit)="onNextQuestion()">
+      <input #input type="submit" style="position:absolute;opacity:0;pointer-events: none;"/>
+      <button class="button next-button" type="submit">Next</button>
+      {{input.focus({preventScroll: true})}}
+    </form>
+  </div>
+</ng-template>
+
+<div id="test-zone">{{testContent}}</div>

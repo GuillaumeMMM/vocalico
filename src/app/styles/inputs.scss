@@ -1,0 +1,19 @@
+@import './var.scss';
+
+input.input {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $primary-color-dark;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+
+    &:focus {
+        color: $primary-color-dark;
+        border-color: $primary-color;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem  $primary-color-light;
+    }
+}

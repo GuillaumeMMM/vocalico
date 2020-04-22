@@ -1,0 +1,8 @@
+<div class="exercise-container" *ngIf="listService.list">
+  <ng-container *ngIf="!choosenExercise">
+    <app-exercise-types-list [list]="listService.list" (chooseListType)="chooseListType($event)"></app-exercise-types-list>
+  </ng-container>
+  <ng-container *ngIf="choosenExercise">
+    <app-exercise-content [exercise]="choosenExercise"></app-exercise-content>
+  </ng-container>
+</div>
