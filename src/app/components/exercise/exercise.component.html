@@ -1,6 +1,6 @@
-<div class="exercise-container" *ngIf="listService.list">
+<div class="exercise-container" *ngIf="listService.lastList">
   <ng-container *ngIf="!choosenExercise">
-    <app-exercise-types-list [list]="listService.list" (chooseListType)="chooseListType($event)"></app-exercise-types-list>
+    <app-exercise-types-list [list]="listService.lastList.list" (chooseListType)="chooseListType($event)"></app-exercise-types-list>
   </ng-container>
   <ng-container *ngIf="choosenExercise">
     <app-exercise-content [exercise]="choosenExercise"></app-exercise-content>

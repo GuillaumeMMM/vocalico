@@ -27,7 +27,7 @@ export class ExerciseContentComponent implements OnInit {
 
   ngOnChanges(change: SimpleChange) {
     if (change && change['exercise'] && change['exercise']['currentValue']) {
-      this.avaliableQuestions = this.exerciseService.getQuestionsFromList(this.listService.list, change['exercise']['currentValue']);
+      this.avaliableQuestions = this.exerciseService.getQuestionsFromList(this.listService.lastList.list, change['exercise']['currentValue']);
       this.addProbabilitiesToAValiableQuestions();
       this.fillInitialQuestions();
     }
@@ -57,9 +57,11 @@ export class ExerciseContentComponent implements OnInit {
   handleAnswer = (answer) => {
     if (answer) {
       if (this.exerciseService.isCorrectAnswerToQuestion(this.questions[this.currentQuestionIndex].a, answer)) {
+        this.avaliableQuestions = this.exerciseService.adjustProbabilities(this.avaliableQuestions, this.questions[this.currentQuestionIndex], true)
         this.countOfCorrectANswers ++;
         this.nextQuestion();
       } else {
+        this.avaliableQuestions = this.exerciseService.adjustProbabilities(this.avaliableQuestions, this.questions[this.currentQuestionIndex], false)
         this.wrongAnswer = true;
       }
     }

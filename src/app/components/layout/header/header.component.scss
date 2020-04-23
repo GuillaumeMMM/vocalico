@@ -12,6 +12,7 @@
 
     .header-title {
         font-weight: 600;
+        letter-spacing: 0.5px;
         font-size: 1.5rem;
         text-transform: uppercase;
     }
@@ -19,7 +20,7 @@
     .back-button {
         position: absolute;
         left: 0;
-        padding: 15px;
+        padding: 12.5px;
         margin-left: 10px;
         border-radius: 5px;
         display: flex;
@@ -29,6 +30,26 @@
         svg {
             fill: $text-color-secondary;
         }
+    
+        &:hover {
+            background-color: $primary-color-dark;
+        }
+    }
+
+    .info-button {
+        position: absolute;
+        right: 0;
+        padding: 12.5px;
+        margin-right: 10px;
+        border-radius: 5px;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-family: $font-family-secondary;
+        font-size: 2rem;
+        justify-content: center;
     
         &:hover {
             background-color: $primary-color-dark;

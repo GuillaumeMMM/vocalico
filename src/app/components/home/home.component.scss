@@ -18,5 +18,9 @@
     .button-container {
         display: inline-block;
         margin: 0 30px 30px 30px;
+
+        .list-name {
+            font-style: italic;
+        }
     }
 }

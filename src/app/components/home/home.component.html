@@ -1,8 +1,8 @@
 <div class="home-container">
   <app-file-input></app-file-input>
-  <ng-container *ngIf="listService.list">
+  <ng-container *ngIf="listService.lastList">
     <div class="button-container">
-      <button class="button" routerLink="/exercise">Start Exercise</button>
+      <button class="button" routerLink="/exercise">Start Exercise <span class="list-name">{{listService.lastList.title.split('.csv')[0]}}</span></button>
     </div>
   </ng-container>
 </div>

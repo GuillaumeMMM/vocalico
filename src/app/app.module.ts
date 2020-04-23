@@ -12,6 +12,7 @@ import { ExerciseComponent } from './components/exercise/exercise.component';
 import { ExerciseTypesListComponent } from './components/exercise/exercise-types-list/exercise-types-list.component';
 import { ExerciseContentComponent } from './components/exercise/exercise-content/exercise-content.component';
 import { QuestionComponent } from './components/exercise/exercise-content/question/question.component';
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { QuestionComponent } from './components/exercise/exercise-content/questi
     ExerciseComponent,
     ExerciseTypesListComponent,
     ExerciseContentComponent,
-    QuestionComponent
+    QuestionComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

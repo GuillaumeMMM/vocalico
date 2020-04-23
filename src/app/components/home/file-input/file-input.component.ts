@@ -26,22 +26,18 @@ export class FileInputComponent implements OnInit {
 
   handleFiles = (event) => {
     this.error = '';
-    console.log(event.target.files[0])
     if (event.target.files[0] && event.target.files[0].type === 'text/csv') {
-      console.log('read')
       this.file = event.target.files[0];
-      this.readFile(this.file);
+      this.readFile(event.target.files[0].name, this.file);
     } else {
-      console.log('error')
       this.error = 'Wrong file format';
     }
   }
 
-  readFile(file) {
+  readFile(fileTitle, file) {
     const reader = new FileReader();
     reader.readAsText(file, "UTF-8");
     reader.onload = (evt: any) => {
-      console.log(evt)
       const rawList: any = evt.target.result;
       const lines = rawList.split('\n');
       const categories = lines[0].split(';');
@@ -54,8 +50,8 @@ export class FileInputComponent implements OnInit {
         }
         words.push(word);
       }
-      this.listService.list = {words: words, categories: categories};
-      localStorage.setItem('list-test', JSON.stringify(this.listService.list));
+      this.listService.lastList = {list: {words: words, categories: categories}, title: fileTitle};
+      localStorage.setItem('listObject', JSON.stringify(this.listService.lastList));
     }
     reader.onerror = (evt) => {
       this.error = 'Error reading file';

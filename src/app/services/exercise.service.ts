@@ -65,17 +65,21 @@ export class ExerciseService {
         }
       });
     } else {
-      if (Math.abs(str1.length - str2.length) <= maxErrorCount) {
-        const longer = str1.length > str2.length ? str1 : str2;
-        const shorter: string = str1.length < str2.length ? str1 : str2;
-        let almostTheSame: boolean = false;
-        shorter.split('').forEach((char, i) => {
-          if (this.areAlmostTheSame(longer, shorter.substr(0, i) + '*' + shorter.substr(i, shorter.length - i), maxErrorCount)) {
-            almostTheSame = true;
+      if (str1.length >= 5 && str2.length >= 5) {
+        if (Math.abs(str1.length - str2.length) <= maxErrorCount) {
+          const longer = str1.length > str2.length ? str1 : str2;
+          const shorter: string = str1.length < str2.length ? str1 : str2;
+          let almostTheSame: boolean = false;
+          shorter.split('').forEach((char, i) => {
+            if (this.areAlmostTheSame(longer, shorter.substr(0, i) + '*' + shorter.substr(i, shorter.length - i), maxErrorCount)) {
+              almostTheSame = true;
+            }
+          });
+          if (almostTheSame) {
+            return true;
+          } else {
+            return false;
           }
-        });
-        if (almostTheSame) {
-          return true;
         } else {
           return false;
         }
@@ -84,5 +88,29 @@ export class ExerciseService {
       }
     }
     return errorsCount <= maxErrorCount;
+  }
+
+  adjustProbabilities = (availableQuestions, answer, isCorrect) => {
+    const newQuestions = availableQuestions.length > 0 ? availableQuestions.concat([]) : [];
+      let indexOfAnswer = availableQuestions.map(question => question.a).indexOf(answer.a);
+      let subtractedProba = 1 / availableQuestions.length;
+      newQuestions.map((question, index) => {
+        let newQuestion = question;
+        if (index === indexOfAnswer) {
+          if (isCorrect) {
+            newQuestion.proba -= subtractedProba;
+          } else {
+            newQuestion.proba += subtractedProba;
+          }
+        } else {
+          if (isCorrect) {
+            newQuestion.proba += (subtractedProba / (availableQuestions.length - 1));
+          } else {
+            newQuestion.proba -= (subtractedProba / (availableQuestions.length - 1));
+          }
+        }
+        return newQuestion;
+      });
+      return newQuestions;
   }
 }

@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this.layoutService.goBack$.next(true);
   }
 
+  infoClicked = () => {
+    this.router.navigate(['/info']);
+  }
+
 }

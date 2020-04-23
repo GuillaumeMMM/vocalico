@@ -9,5 +9,8 @@
 			C492,219.198,479.172,207.418,464.344,207.418z" />
     </svg>
   </div>
-  <div class="header-title">VOCALICO</div>
+  <h1 class="header-title">VOCALICO</h1>
+  <div class="info-button" (click)="infoClicked()" *ngIf="router.url !== '/info'">
+    <span>i</span>
+  </div>
 </div>

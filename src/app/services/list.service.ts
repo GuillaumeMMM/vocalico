@@ -7,5 +7,5 @@ export class ListService {
 
   constructor() { }
 
-  public list: any;
+  public lastList: any;
 }

@@ -18,7 +18,7 @@ export class ExerciseComponent implements OnInit {
   public destroySubject$: Subject<any> = new Subject;
 
   ngOnInit() {
-    if (!this.listService.list) {
+    if (!this.listService.lastList) {
       this.router.navigate(['']);
     }
 
@@ -30,11 +30,10 @@ export class ExerciseComponent implements OnInit {
           this.router.navigate(['']);
         }
       }
-    })
+    });
   }
 
   chooseListType = (exercise) => {
-    console.log(exercise)
     this.choosenExercise = exercise;
   }
 

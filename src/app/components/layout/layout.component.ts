@@ -11,8 +11,8 @@ export class LayoutComponent implements OnInit {
   constructor(public listService: ListService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('list-test')) {
-      this.listService.list = JSON.parse(localStorage.getItem('list-test'));
+    if (localStorage.getItem('list')) {
+      this.listService.lastList = JSON.parse(localStorage.getItem('listObject'));
     }
   }
 
