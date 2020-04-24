@@ -2,13 +2,19 @@
 
 @import './app/styles/var.scss';
 
-body {
+* {
     margin: 0;
+    padding: 0;
+}
+
+body {
     font-family: $font-family;
     color: $text-color-primary;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 600;
+    line-height: 2.2rem;
+    text-transform: uppercase;
 }

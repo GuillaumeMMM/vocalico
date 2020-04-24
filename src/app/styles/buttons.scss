@@ -17,8 +17,16 @@ button.button {
     line-height: 1.5;
     border-radius: .25rem;
 
+    &.iverted {
+        border-color: $text-color-secondary;
+    }
+
     &:hover {
         background-color: $primary-color-dark;
         border-color: $primary-color-dark;
+
+        &.iverted {
+            border-color: $text-color-secondary;
+        }
     }
 }

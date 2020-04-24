@@ -1,8 +1,15 @@
 <div class="home-container">
-  <app-file-input></app-file-input>
-  <ng-container *ngIf="listService.lastList">
-    <div class="button-container">
-      <button class="button" routerLink="/exercise">Start Exercise <span class="list-name">{{listService.lastList.title.split('.csv')[0]}}</span></button>
-    </div>
-  </ng-container>
+  <div class="home-left">
+    <app-file-input></app-file-input>
+    <ng-container *ngIf="listService.lastList">
+      <div class="button-container">
+        <button class="button iverted" routerLink="/exercise">Start Exercise <span class="list-name">{{listService.lastList.title.split('.csv')[0]}}</span></button>
+      </div>
+    </ng-container>
+  </div>
+  <div class="home-right">
+    <h2>An efficient way to learn vocabulary</h2>
+    <p>Bring your vocabulary lists, VOCALICO provides a basic exercise for remembering them.</p>
+    <p>You will have to translate the words of your list in an infinite loop until you don't have to think anymore.</p>
+  </div>
 </div>
